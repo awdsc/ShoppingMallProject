@@ -7,6 +7,7 @@ import dto.Product;
 public class ProductRepository {
 
 	private ArrayList<Product> listOfProducts = new ArrayList<Product>();
+	private static ProductRepository instance = new ProductRepository();
 	
 	public ProductRepository()
 	{
@@ -24,7 +25,7 @@ public class ProductRepository {
 		notebook.setUintsInstock(2486);
 		notebook.setCondition("New");
 		
-		Product tablet = new Product("p1236","Galaxy thab 5", 40000);
+		Product tablet = new Product("p1236","Galaxy tab 5", 40000);
 		tablet.setDescription("well done");
 		tablet.setCategory("Tablet");
 		tablet.setManufacturer("Samsung");
@@ -34,11 +35,18 @@ public class ProductRepository {
 		listOfProducts.add(phone);
 		listOfProducts.add(notebook);
 		listOfProducts .add(tablet);
+		
+		
 	}
 	
 	public ArrayList<Product> getAllProducts()
 	{
 		return listOfProducts;
+	}
+	
+	public static ProductRepository getInstance()
+	{
+		return instance;
 	}
 	
 	public Product getProductById(String productId)
@@ -54,6 +62,11 @@ public class ProductRepository {
 			}
 		}
 		return productById;
+	}
+	
+	public void addProduct(Product product)
+	{
+		listOfProducts.add(product);
 	}
 }
 
