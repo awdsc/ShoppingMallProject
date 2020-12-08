@@ -4,7 +4,10 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script type = "text/javascript" src = "C:\\Users\\김규진\\git\\repository2\\ShoppingMall\\WebContent\\resources\\js\\validation.js"></script>
+
 <title>Add The Product</title>
 
 </head>
@@ -17,12 +20,12 @@
 	</div>
 	
 	<div class = "container">
-		<form name = "newProduct" action = "./processAddProduct.jsp" class = "form-horizontal" method = "post">
+		<form name = "newProduct" action = "./processAddProduct.jsp" class = "form-horizontal" method = "post" enctype = "multipart/form-data">
 		
 		<div class = "form-group row">
 			<label class = "col-sm-2">Product Code</label>
 			<div class = "col-sm-3">
-				<input type = "text" name = "productId" class = "form-control">
+				<input type = "text" name = "productId" id = "productId" class = "form-control">
 			</div>
 		</div>
 		
@@ -30,7 +33,7 @@
 		<div class = "form-group row">
 			<label class = "col-sm-2">Product Name</label>
 			<div class = "col-sm-3">
-				<input type = "text" name = "name" class = "form-control">
+				<input type = "text" name = "name" id = "name" class = "form-control">
 			</div>
 		</div>
 		
@@ -39,7 +42,7 @@
 		<div class = "form-group row">
 			<label class = "col-sm-2">Product Price</label>
 			<div class = "col-sm-3">
-				<input type = "text" name = "unitPrice" class = "form-control">
+				<input type = "text" name = "unitPrice" id = "unitPrice" class = "form-control">
 			</div>
 		</div>
 		
@@ -67,7 +70,7 @@
 		<div class = "form-group row">
 			<label class = "col-sm-2">Unit's Stock</label>
 			<div class = "col-sm-3">
-				<input type = "text" name = "unitsInStock" class = "form-control">
+				<input type = "text" name = "unitsInStock" id = "unitStock" class = "form-control">
 			</div>
 		</div>
 		
@@ -79,9 +82,17 @@
 				<input type = "radio" name = "condition" value = "Refurbished"> Refurbished
 			</div>
 		</div>
+		 
+		<div class = "form-group row">
+			<label class = "col-sm-2">image</label>
+			<div class = "col-sm-5">
+				<input type = "file" name = "productImage" class = "form-control">
+ 			</div>
+		</div>
+		
 		<div class = "form-group row">
 			<div class = "col-sm-oggset-2 col-sm-10">
-				<input type = "submit" class = "btn btn-primary" value = "Submit">
+				<input type = "button" class = "btn btn-primary" value = "Submit" onclick = "CheckAddProduct()">
 			</div>
 		</div>
 		</form>

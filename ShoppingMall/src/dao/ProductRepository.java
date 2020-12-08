@@ -17,6 +17,7 @@ public class ProductRepository {
 		phone.setManufacturer("Apple");
 		phone.setUintsInstock(1000);
 		phone.setCondition("New");
+		phone.setFileName("p1234.png");
 		
 		Product notebook = new Product("p1235","LG Gram", 70000);
 		notebook.setDescription("lighter than 1kg");
@@ -24,6 +25,7 @@ public class ProductRepository {
 		notebook.setManufacturer("LG");
 		notebook.setUintsInstock(2486);
 		notebook.setCondition("New");
+		notebook.setFileName("p1235.png");
 		
 		Product tablet = new Product("p1236","Galaxy tab 5", 40000);
 		tablet.setDescription("well done");
@@ -31,10 +33,11 @@ public class ProductRepository {
 		tablet.setManufacturer("Samsung");
 		tablet.setUintsInstock(1406);
 		tablet.setCondition("New");
-		
+		tablet.setFileName("p1236.png");
+				
 		listOfProducts.add(phone);
 		listOfProducts.add(notebook);
-		listOfProducts .add(tablet);
+		listOfProducts.add(tablet);
 		
 		
 	}

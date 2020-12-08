@@ -17,6 +17,7 @@ public class Product implements Serializable
 	private String category;
 	private long uintsInstock;
 	private String condition;
+	private String fileName;
 	
 	public Product()
 	{
@@ -96,4 +97,13 @@ public class Product implements Serializable
         this.condition = condition;
     }
 	
+    public String getFileName()
+    {
+    	return fileName;
+    }
+    
+    public void setFileName(String fileName)
+    {
+    	this.fileName = fileName;
+    }
 }

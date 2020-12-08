@@ -1,21 +1,40 @@
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     
+<%@ page import = "com.oreilly.servlet.*" %>
+
+<%@ page import = "com.oreilly.servlet.multipart.*" %>
+
+<%@ page import = "javax.servlet.*" %>
+
+
+
+<%@ page import = "java.util.*" %>
+
 <%@ page import = "dto.Product"%>
 
 <%@ page import = "dao.ProductRepository"%>
 
 <%
-	request.setCharacterEncoding("UTF-8");
 
-	String productId = request.getParameter("productId");
-	String name = request.getParameter("name");
-	String unitPrice = request.getParameter("unitPrice");
-	String description = request.getParameter("description");
-	String manufacturer = request.getParameter("manufacturer");
-	String category = request.getParameter("category");
-	String unitsInStock = request.getParameter("unitsInStock");
-	String condition = request.getParameter("condition");
+	request.setCharacterEncoding("UTF-8");
+	
+	String fileName = "";
+	String realFolder ="C:\\Users\\±è±ÔÁø\\git\\repository2\\ShoppingMall\\WebContent\\resources\\images";
+	int maxSize = 30*1024*1024;
+	String enType = "utf-8";
+	
+	MultipartRequest multi = new MultipartRequest(request,realFolder,maxSize,enType,new DefaultFileRenamePolicy());
+	
+	String productId = multi.getParameter("productId");
+	String name = multi.getParameter("name");
+	String unitPrice = multi.getParameter("unitPrice");
+	String description = multi.getParameter("description");
+	String manufacturer = multi.getParameter("manufacturer");
+	String category = multi.getParameter("category");
+	String unitsInStock = multi.getParameter("unitsInStock");
+	String condition = multi.getParameter("condition");
 	
 	Integer price;
 	
@@ -37,6 +56,10 @@
 		stock = Long.valueOf(unitsInStock);
 	}
 	
+	Enumeration files = multi.getFileNames();
+	String fname = (String) files.nextElement();
+	fileName = multi.getFilesystemName(fname);
+	
 	ProductRepository dao = ProductRepository.getInstance();
 	
 	Product newProduct = new Product();
@@ -49,9 +72,11 @@
 	newProduct.setCategory(category);
 	newProduct.setUintsInstock(stock);
 	newProduct.setCondition(condition);
+	newProduct.setFileName(fileName);
 	
 	dao.addProduct(newProduct);
 	
 	response.sendRedirect("Products.jsp");
+	
 %>
 

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>Product Information</title>
 </head>
 <body>
@@ -30,6 +30,9 @@
 	
 	<div class = "container">
 		<div class = "row">
+			<div class = "col-md-5">
+				<img src = "C:\Users\김규진\git\repository2\ShoppingMall\WebContent\resources\images\<%=product.getFileName() %>" style = "width:100%">
+			</div>
 			<div class = "col-md-6">
 				<h3><%=product.getPName() %></h3>
 				<p><%=product.getDescription() %>
